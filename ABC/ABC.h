@@ -74,6 +74,7 @@ void ABC::run(FitFun fitFun,LimitFun limitFun, ConstructFuenteFun constructFuent
 		for(auto iter = fuentes.begin(); iter != fuentes.end(); ++iter){
 			j = rand() % numVal;
 			k = rand() % numFuentes;
+			if(_i == k) k = (k + 1) % numFuentes;
 			KVal = fuentes[k].valores[j];	
 			iter->getCandidatos(KVal, j);
 			if(limitFun(*iter) == false){
@@ -99,6 +100,7 @@ void ABC::run(FitFun fitFun,LimitFun limitFun, ConstructFuenteFun constructFuent
 			cout<<"Observadora "<<l+1<<endl;
 			j = rand() % numVal;
 			k = rand() % numFuentes;
+			if(_i == k) k = (k + 1) % numFuentes;
 			KVal = fuentes[k].valores[j];
 			_i = searchAleatorio();
 			fuentes[_i].getCandidatos(KVal, j);
